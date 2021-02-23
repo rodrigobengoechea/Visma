@@ -1,0 +1,33 @@
+
+<div fxLayout="column">
+    <div fxLayout="row" fxFlexOffset="2" fxLayoutAlign="center center">
+        <span>Employees</span>
+    </div>  
+    <table mat-table #table [dataSource]="dataSource">            
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef>First Name</th>
+            <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+        </ng-container>
+            
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef>Last Name</th>
+            <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
+        </ng-container>  
+             
+        <ng-container matColumnDef="socialSecurityNumber">
+            <th mat-header-cell *matHeaderCellDef>Social Security Number</th>
+            <td mat-cell *matCellDef="let element" >{{element.socialSecurityNumber}}</td>
+        </ng-container>
+            
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef>Phone</th>
+          <td mat-cell *matCellDef="let element" >{{element.phone}}</td>
+        </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div fxFlexOffset="3"></div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <button fxFlexOffset="90" mat-raised-button color="primary" (click)="openDialog()">Add Employee</button>
+    </div>
+</div>

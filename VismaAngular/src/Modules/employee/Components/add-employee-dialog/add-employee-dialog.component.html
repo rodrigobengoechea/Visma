@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit(employeeForm)" [formGroup]="employeeForm">
+    <h2 mat-dialog-title>Add Employee</h2>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" formControlName="firstName">
+            <mat-error *ngIf="employeeForm.controls.firstName.errors && employeeForm.controls.firstName.errors.required">First name required</mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <mat-error *ngIf="employeeForm.controls.lastName.errors && employeeForm.controls.lastName.errors.required">Last name required</mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Social Security Number</mat-label>
+            <input matInput placeholder="Social Sec. Number" formControlName="socialSecurityNumber">
+            <mat-error *ngIf="employeeForm.controls.socialSecurityNumber.errors && employeeForm.controls.socialSecurityNumber.errors.required">Social Security Number required</mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Phone" formControlName="phone">        
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxFlexAlign="end center">
+        <button type="button" mat-raised-button color="warn" (click)="close()">Close</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="employeeForm.invalid">Save</button>
+    </div>    
+</form>
+
+
+
